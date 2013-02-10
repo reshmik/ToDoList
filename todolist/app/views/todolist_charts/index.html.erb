@@ -1,0 +1,37 @@
+<h1>Displaying todolist</h1>
+
+<table border="1">
+  <tr style="font-size: 12pt; color: fuchsia"> <b>
+    <th>Name</th> 
+    <th><b>Description</b></th>
+    <th></b>Duedate</b></th>
+    <th><b>Status</b></th>
+    <th><b>Priority</b></th>
+  </b></tr>
+
+<% @todolist_charts.each do |todolist_chart| %>
+
+  <tr>
+    <td style="font-size: 10pt; color: blue"><%=h todolist_chart.name %></td>
+     <td style="font-size: 10pt; color: blue"><%=h todolist_chart.description %></td>
+    <td style="font-size: 10pt; color: blue"><%=h todolist_chart.duedate %></td>
+	<td style="font-size: 10pt; color: blue"><%=h todolist_chart.status %></td>
+	 <td style="font-size: 10pt; color: blue"><%=h todolist_chart.priority %></td>
+	<td style="font-size: 10pt; color: red"><%= link_to 'Mark Task As Completed', :controller => "todolist_charts",
+        :action => "mark_complete", :id => todolist_chart.id %>
+    </td>
+	
+    <td style="font-size: 10pt; color: red"><%= link_to 'Display', todolist_chart %></td>
+    <td style="font-size: 10pt; color: red"><%= link_to 'Modify', edit_todolist_chart_path(todolist_chart) %></td>
+    <td style="font-size: 10pt; color: red"><%= link_to 'Delete', todolist_chart, :confirm => 'Do you really want to delete?', :method => :delete %></td>
+  </tr>
+ <% end %>
+</table>
+
+<br />
+<p style="font-size: 10pt; color: green" >
+<%= link_to 'Create New Tasks', new_todolist_chart_path %> 
+</p>
+ <p style="font-size: 10pt; color: green">
+<%= link_to 'Delete All Completed Tasks', delete_complete_todolist_charts_path,:confirm => 'Do You Really Want To Delete All Completed Tasks?' %>
+</p>

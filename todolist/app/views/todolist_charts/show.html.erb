@@ -1,0 +1,28 @@
+<h1>Showing An Item in todolist_charts</h1>
+<p style="font-size: 10pt; color: fuchsia">
+<b>Name:</b>
+<%=h @todolist_chart.name %>
+</p>
+<p style="font-size: 10pt; color: fuchsia">
+  <b>Description:</b>
+  <%=h @todolist_chart.description %>
+</p>
+
+<p style="font-size: 10pt; color: fuchsia">
+<b>Duedate:</b>
+<%=h @todolist_chart.duedate %>
+</p>
+<p style="font-size: 10pt; color: fuchsia">
+<b>Status:</b>
+<%=h @todolist_chart.status %>
+</p>
+<p style="font-size: 10pt; color: fuchsia">
+<b>Priority:</b>
+<%=h @todolist_chart.priority %>
+</p>
+<p style="font-size: 10pt; color: green">
+<%= link_to 'Modify', edit_todolist_chart_path(@todolist_chart) %>
+</p>
+<p style="font-size: 10pt; color: green"> 
+<%= link_to 'Back', todolist_charts_path %>
+</p>
